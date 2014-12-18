@@ -5,6 +5,7 @@ class UsersControllerTest < ActionController::TestCase
   def setup
     @user = users(:michael)
     @other_user = users(:archer)
+    @non_activated = users(:igor)
   end
   
   test "should redirect index when not logged in" do
@@ -15,6 +16,11 @@ class UsersControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+  end
+  
+  test "should redirect show when user is not activated" do
+    get :show, id: @non_activated
+    assert_redirected_to root_url
   end
 
   test "should redirect edit when not logged in" do
