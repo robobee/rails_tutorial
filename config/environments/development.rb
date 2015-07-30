@@ -17,13 +17,14 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_options = { from: 'no-reply@example.com' }
+  config.action_mailer.default_url_options = { :host => 'boiling-bayou-8568.herokuapp.com' }
 
   config.action_mailer.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain => "Domain",
+    :domain => 'boiling-bayou-8568.herokuapp.com',
     :authentication => "plain",
     :openssl_verify_mode => 'none', # opportunistic encoding, bad for production
     :enable_starttls_auto => true

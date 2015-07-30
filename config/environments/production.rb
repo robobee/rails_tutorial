@@ -64,18 +64,18 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_url_options = { :host => 'boiling-bayou-8568.herokuapp.com' }
+
   config.action_mailer.smtp_settings = {
     :port           => ENV['MAILGUN_SMTP_PORT'],
     :address        => ENV['MAILGUN_SMTP_SERVER'],
     :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
     :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-    :domain         => 'boiling-bayou-8568.herokuapp.com',
+    :domain => 'boiling-bayou-8568.herokuapp.com',
     :authentication => "plain",
-    :openssl_verify_mode => 'none',
+    :openssl_verify_mode => 'none', # opportunistic encoding, bad for production
     :enable_starttls_auto => true
   }
-
-  config.action_mailer.default_url_options = { :host => "herokuapp.com" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

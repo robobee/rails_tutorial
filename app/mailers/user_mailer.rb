@@ -1,5 +1,4 @@
 class UserMailer < ApplicationMailer
-  default from: 'Michael Hartl <rails_tutorial@example.com>'
 
   def account_activation(user)
     @user = user
